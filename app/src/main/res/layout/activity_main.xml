@@ -8,29 +8,15 @@
 
     <TextView
         android:id="@+id/TextViewCalories"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="126dp"
+        android:layout_height="47dp"
         android:layout_marginBottom="555dp"
         android:text="Calories"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/progressBarCalories"
-        app:layout_constraintVertical_bias="0.22" />
-
-    <ProgressBar
-        android:id="@+id/progressBarCalories"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="104dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="41dp"
-        android:layout_marginBottom="92dp"
-        app:layout_constraintBottom_toTopOf="@+id/ButtonViewDiary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/TextViewSteps"
@@ -45,8 +31,8 @@
         android:id="@+id/steps"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="72dp"
         android:text="Steps:"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,7 +42,7 @@
         android:id="@+id/TextViewGoalCalories"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="4dp"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="@+id/goalCalories"
         app:layout_constraintTop_toBottomOf="@+id/goalCalories" />
@@ -65,8 +51,8 @@
         android:id="@+id/goalCalories"
         android:layout_width="105dp"
         android:layout_height="24dp"
-        android:layout_marginTop="72dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="16dp"
         android:text="Goal Calories:"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -80,7 +66,54 @@
         android:layout_marginBottom="477dp"
         android:text="View Diary"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/TextViewCalories"
-        app:layout_constraintTop_toBottomOf="@+id/progressBarCalories" />
+        app:layout_constraintStart_toStartOf="@+id/TextViewCalories" />
+
+    <ProgressBar
+        android:id="@+id/progressBarCalories"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="205dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:max="100"
+        android:progress="60"
+        app:layout_constraintBottom_toTopOf="@+id/goalCalories"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/TextViewWelcomeUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Welcome Back User!"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ButtonViewDiary" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
+    <!--custom progress drawable for progress mode-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
