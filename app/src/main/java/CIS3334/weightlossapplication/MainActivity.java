@@ -3,16 +3,19 @@ package CIS3334.weightlossapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class MainActivity extends AppCompatActivity {
     TextView textViewSteps, textViewCalories, textViewGoalCalories;
     Button viewDiaryButton;
     ProgressBar progressBarCalories;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +49,13 @@ public class MainActivity extends AppCompatActivity {
         viewDiaryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO add onClick functionality to button to get to another page?
+                // variables for the Firebase database
+                Log.d("CIS3334", "Connect Database");
+                FirebaseDatabase database;
+                DatabaseReference myRef;
+                database = FirebaseDatabase.getInstance();
+                myRef = database.getReference("Oct-24");
+                myRef.setValue("Hello World");
             }
         });
     }
