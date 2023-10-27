@@ -2,14 +2,12 @@ package CIS3334.weightlossapplication;
 
 public class Food {
     private String foodName;
-    private Double serving, protein, carb, sodium, caloriesPerServing;
+    private Double serving, protein, caloriesPerServing;
 
-    public Food(String foodName, Double caloriesPerServing, Double protein, Double carb, Double sodium, Double serving){
+    public Food(String foodName, Double caloriesPerServing, Double protein, Double serving){
         this.foodName = foodName;
         this.caloriesPerServing = caloriesPerServing;
         this.protein = protein;
-        this.carb = carb;
-        this.sodium = sodium;
         this.serving = serving;
     }
 
@@ -18,20 +16,24 @@ public class Food {
         return total;
     }
 
-    public Double getCarb(){
-        Double total = serving * carb;
-        return total;
-    }
-
-    public Double getSodium(){
-        Double total = serving * sodium;
-        return total;
-    }
-
     public Double getCalories(){
         Double total = serving * caloriesPerServing;
         return total;
     }
 
+    public void setFoodName(String foodName) {
+        this.foodName = foodName;
+    }
 
+    public void setProtein(Double protein) {
+        this.protein = protein;
+    }
+
+    public void setServing(Double serving) {
+        this.serving = serving;
+    }
+
+    public void setCaloriesPerServing(Double caloriesPerServing) {
+        this.caloriesPerServing = caloriesPerServing;
+    }
 }

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -14,8 +15,10 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
     TextView textViewSteps, textViewCalories, textViewGoalCalories;
-    Button viewDiaryButton;
+    Button viewDiaryButton, addFoodButton;
     ProgressBar progressBarCalories;
+    EditText editTextServings, editTextCalories, editTextProtein, editTextFoodName;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +27,15 @@ public class MainActivity extends AppCompatActivity {
         setupDiaryButton();
         setupProgressBar();
         setupTextViews();
+        setupAddFoodButton();
     }
 
+    private void setupEditText(){
+        editTextCalories = findViewById(R.id.editTextCalories);
+        editTextProtein = findViewById(R.id.editTextProtein);
+        editTextServings = findViewById(R.id.editTextServings);
+        editTextFoodName = findViewById(R.id.editTextFoodName);
+    }
 
     private void setupTextViews() {
         textViewCalories = findViewById(R.id.TextViewCalories);
@@ -44,6 +54,22 @@ public class MainActivity extends AppCompatActivity {
     */
     }
 
+    private void setupAddFoodButton(){
+        addFoodButton = findViewById(R.id.buttonAddFood);
+        addFoodButton.setEnabled(false);
+        addFoodButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("CIS3334", "Button Add Food Clicked");
+                Food newFood = new Food(editTextFoodName.toString(),
+                        Double.parseDouble(editTextCalories.toString()),
+                        Double.parseDouble(editTextProtein.toString()),
+                        Double.parseDouble(editTextServings.toString())
+                );
+            }
+        });
+    }
+
     private void setupDiaryButton() {
         viewDiaryButton = findViewById(R.id.ButtonViewDiary);
         viewDiaryButton.setOnClickListener(new View.OnClickListener() {
@@ -55,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                 DatabaseReference myRef;
                 database = FirebaseDatabase.getInstance();
                 myRef = database.getReference("Oct-24");
-                myRef.setValue("Hello World");
+                myRef.setValue("Hello Worl");
             }
         });
     }

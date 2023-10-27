@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
-        android:text="TextView"
+        android:text="0"
         app:layout_constraintStart_toStartOf="@+id/steps"
         app:layout_constraintTop_toBottomOf="@+id/steps" />
 
@@ -43,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:text="TextView"
+        android:text="0"
         app:layout_constraintStart_toStartOf="@+id/goalCalories"
         app:layout_constraintTop_toBottomOf="@+id/goalCalories" />
 
@@ -94,6 +94,99 @@
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ButtonViewDiary" />
+
+    <EditText
+        android:id="@+id/editTextServings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toStartOf="@+id/tvFoodServing"
+        app:layout_constraintTop_toBottomOf="@+id/tvFoodServing" />
+
+    <EditText
+        android:id="@+id/editTextCalories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toTopOf="@+id/tvProtien"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextProtein"
+        android:layout_width="223dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginBottom="77dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvFoodName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="2dp"
+        android:text="Food Name"
+        app:layout_constraintBottom_toTopOf="@+id/editTextFoodName"
+        app:layout_constraintStart_toStartOf="@+id/editTextFoodName" />
+
+    <TextView
+        android:id="@+id/tvFoodServing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="14dp"
+        android:text="Servings"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextFoodName" />
+
+    <TextView
+        android:id="@+id/tvCalories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:text="Calories"
+        app:layout_constraintBottom_toTopOf="@+id/editTextCalories"
+        app:layout_constraintStart_toStartOf="@+id/editTextCalories" />
+
+    <TextView
+        android:id="@+id/tvProtien"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:text="Protien"
+        app:layout_constraintBottom_toTopOf="@+id/editTextProtein"
+        app:layout_constraintStart_toStartOf="@+id/editTextProtein" />
+
+    <EditText
+        android:id="@+id/editTextFoodName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="108dp"
+        android:layout_marginBottom="104dp"
+        android:ems="10"
+        android:hint="Apple"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="@+id/tvCalories"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/TextViewWelcomeUser" />
+
+    <Button
+        android:id="@+id/buttonAddFood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Add Food"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <!--custom progress drawable for progress mode-->
 
