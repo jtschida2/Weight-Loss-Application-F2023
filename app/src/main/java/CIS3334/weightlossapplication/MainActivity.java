@@ -2,6 +2,7 @@ package CIS3334.weightlossapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,14 +11,20 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
-    TextView textViewSteps, textViewCalories, textViewGoalCalories;
+    FirebaseAuth auth;
+    Button logoutButton;
+    FirebaseUser user;
+    TextView textViewSteps, textViewCalories, textViewGoalCalories, userDetails;
     Button viewDiaryButton, addFoodButton;
     ProgressBar progressBarCalories;
     EditText editTextServings, editTextCalories, editTextProtein, editTextFoodName;
+    Double calorieTracker = 0.0;
 
 
     @Override
@@ -28,8 +35,34 @@ public class MainActivity extends AppCompatActivity {
         setupProgressBar();
         setupTextViews();
         setupAddFoodButton();
+        setupEditText();
+        setupFirebaseAuth();
     }
 
+    private void setupFirebaseAuth(){
+        auth = FirebaseAuth.getInstance();
+        logoutButton = findViewById(R.id.buttonLogout);
+        userDetails = findViewById(R.id.textViewUserDetails);
+        user = auth.getCurrentUser();
+        if(user == null){
+            Intent intent = new Intent(getApplicationContext(), Login.class);
+            startActivity(intent);
+            finish();
+        }
+        else{
+            userDetails.setText(user.getEmail());
+        }
+
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+    }
     private void setupEditText(){
         editTextCalories = findViewById(R.id.editTextCalories);
         editTextProtein = findViewById(R.id.editTextProtein);
@@ -56,16 +89,24 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupAddFoodButton(){
         addFoodButton = findViewById(R.id.buttonAddFood);
-        addFoodButton.setEnabled(false);
+        //addFoodButton.setEnabled(false);
         addFoodButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d("CIS3334", "Button Add Food Clicked");
                 Food newFood = new Food(editTextFoodName.toString(),
-                        Double.parseDouble(editTextCalories.toString()),
-                        Double.parseDouble(editTextProtein.toString()),
-                        Double.parseDouble(editTextServings.toString())
+                        Double.parseDouble(editTextCalories.getText().toString()),
+                        Double.parseDouble(editTextProtein.getText().toString()),
+                        Double.parseDouble(editTextServings.getText().toString())
                 );
+                calorieTracker += newFood.getCalories();
+                textViewGoalCalories.setText(calorieTracker.toString());
+
+
+                editTextFoodName.setText("");
+                editTextCalories.setText("");
+                editTextProtein.setText("");
+                editTextServings.setText("");
             }
         });
     }

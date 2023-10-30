@@ -71,19 +71,22 @@
     <ProgressBar
         android:id="@+id/progressBarCalories"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        android:layout_width="205dp"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="100dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="106dp"
         android:layout_marginBottom="16dp"
         android:max="100"
         android:progress="60"
         app:layout_constraintBottom_toTopOf="@+id/goalCalories"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewUserDetail"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/TextViewWelcomeUser"
+        android:id="@+id/textViewUserDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="26dp"
@@ -176,7 +179,7 @@
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="@+id/tvCalories"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/TextViewWelcomeUser" />
+        app:layout_constraintTop_toTopOf="@+id/textViewUserDetails" />
 
     <Button
         android:id="@+id/buttonAddFood"
@@ -187,6 +190,27 @@
         android:text="Add Food"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttonLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="16dp"
+        android:text="Log Out"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonAddFood" />
+
+    <TextView
+        android:id="@+id/textViewUserDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="35dp"
+        app:layout_constraintEnd_toStartOf="@+id/progressBarCalories"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!--custom progress drawable for progress mode-->
 
