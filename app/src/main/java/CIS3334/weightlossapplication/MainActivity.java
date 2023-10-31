@@ -20,7 +20,10 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+//Main activity of the program, contains buttons that addFood, logout a user, change meals, view the
+//final diary, and take in the inputs for food submissions into the Database
 
+//declarations
 public class MainActivity extends AppCompatActivity {
     FirebaseAuth auth;
     FirebaseUser user;
@@ -34,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     List<Food> foodList;
     int mealCounter = 1;
 
-
+    //on the creation of the page, sets up all the UI features and listeners
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,20 +53,23 @@ public class MainActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
     }
 
+    //Authentication Setup
     private void setupFirebaseAuth(){
         auth = FirebaseAuth.getInstance();
         logoutButton = findViewById(R.id.buttonLogout);
         userDetails = findViewById(R.id.textViewUserDetails);
         user = auth.getCurrentUser();
+        //if no user, take back to login class
         if(user == null){
             Intent intent = new Intent(getApplicationContext(), Login.class);
             startActivity(intent);
             finish();
         }
+        //displays users email on screen
         else{
             userDetails.setText(user.getEmail());
         }
-
+        //when the user presses logout, sends them to the login screen and signs out user instance
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -74,25 +80,26 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    //sets up edit text fields necessary for inputting data
     private void setupEditText(){
         editTextCalories = findViewById(R.id.editTextCalories);
         editTextProtein = findViewById(R.id.editTextProtein);
         editTextServings = findViewById(R.id.editTextServings);
         editTextFoodName = findViewById(R.id.editTextFoodName);
     }
-
+    //sets up TextViews important for UI visibility
     private void setupTextViews() {
         textViewCalories = findViewById(R.id.TextViewCalories);
         textViewSteps = findViewById(R.id.TextViewSteps);
         textViewGoalCalories = findViewById(R.id.TextViewGoalCalories);
     }
-
+    //sets up progress bar displaying the progress of calories for that day
     private void setupProgressBar() {
         progressBarCalories = findViewById(R.id.progressBarCalories);
         progressBarCalories.setMax(2000);
         progressBarCalories.setProgress(0);
     }
-
+    //View Diary button which when pressed takes user to another activity and displays all food eaten that day
     private void setupViewDiary(){
         viewDiaryButton = findViewById(R.id.ButtonViewDiary);
         viewDiaryButton.setOnClickListener(new View.OnClickListener() {
@@ -107,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
+    //add food button which sends food into the database and foodList which is sent to Diary Activity
     private void setupAddFoodButton(){
         addFoodButton = findViewById(R.id.buttonAddFood);
         addFoodButton.setOnClickListener(new View.OnClickListener() {
@@ -121,25 +128,27 @@ public class MainActivity extends AppCompatActivity {
                 );
 
                 foodList.add(newFood);
-
+                //breakfast
                 if(mealCounter ==1) {
                     myRef = database.getReference("1-Breakfast, " + LocalDate.now().toString());
                     myRef.push().setValue(newFood);
                 }
+                //lunch
                 else if(mealCounter ==2) {
                     myRef = database.getReference("2-Lunch, " + LocalDate.now().toString());
                     myRef.push().setValue(newFood);
                 }
+                //dinner
                 else if(mealCounter ==3) {
                     myRef = database.getReference("3-Dinner, " + LocalDate.now().toString());
                     myRef.push().setValue(newFood);
                 }
-
+                //progress bar updated
                 calorieTracker += newFood.getCalories();
                 progressBarCalories.setProgress((int)Math.round(calorieTracker));
                 textViewGoalCalories.setText(calorieTracker.toString());
 
-
+                //set text back to default empty once data is taken in
                 editTextFoodName.setText("");
                 editTextCalories.setText("");
                 editTextProtein.setText("");
@@ -147,7 +156,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
+    //button that changes the meal from breakfast,lunch, to dinner and then back to breakfast once the dinner is completed
     private void setupNewMealButton(){
         newMeal = findViewById(R.id.newMeal);
         newMeal.setOnClickListener(new View.OnClickListener() {

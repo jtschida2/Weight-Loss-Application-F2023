@@ -6,13 +6,14 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 
+//declarations of UI variables and ViewHolder piece of
+//recyclerview structure
 public class DiaryViewHolder extends RecyclerView.ViewHolder {
-
     ImageView imageView;
     TextView textViewName, textViewProtein, textViewCalories;
 
+    //defines UI elements of Diary Page
     public DiaryViewHolder(@NonNull View itemView) {
         super(itemView);
         imageView = itemView.findViewById(R.id.imageView);

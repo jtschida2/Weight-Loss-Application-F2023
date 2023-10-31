@@ -27,4 +27,5 @@
     <string name="calories_itemView">Calories</string>
     <string name="meal_name">Meal Name</string>
     <string name="protein_itemView">Protein</string>
+    <string name="dumbell_home_picture">Dumbell Home Picture</string>
 </resources>
