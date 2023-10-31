@@ -9,6 +9,11 @@
     android:gravity="center"
     tools:context=".Login">
 
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="75dp"
+        app:srcCompat="@mipmap/dumbell" />
+
     <TextView
         android:text="@string/login"
         android:layout_width="match_parent"

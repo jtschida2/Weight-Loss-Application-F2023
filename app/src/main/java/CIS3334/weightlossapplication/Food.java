@@ -1,6 +1,8 @@
 package CIS3334.weightlossapplication;
 
-public class Food {
+import java.io.Serializable;
+
+public class Food implements Serializable {
     private String foodName;
     private Double serving, protein, caloriesPerServing;
 
@@ -19,6 +21,14 @@ public class Food {
     public Double getCalories(){
         Double total = serving * caloriesPerServing;
         return total;
+    }
+
+    public Double getServing() {
+        return serving;
+    }
+
+    public String getFoodName() {
+        return foodName;
     }
 
     public void setFoodName(String foodName) {

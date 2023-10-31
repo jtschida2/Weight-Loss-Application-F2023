@@ -6,4 +6,25 @@
     <string name="register">Register</string>
     <string name="click_to_login">Click to Login</string>
     <string name="click_to_register">Click to Register</string>
+    <string name="calories">Calories</string>
+    <string name="_0">0</string>
+    <string name="steps">Steps:</string>
+    <string name="_0_goalCalories">0</string>
+    <string name="goal_calories">Goal Calories:</string>
+    <string name="view_diary">End Day/View Diary</string>
+    <string name="welcome_back_user">Welcome Back User!</string>
+    <string name="serving">Serving</string>
+    <string name="food_name">Food Name</string>
+    <string name="servings">Servings</string>
+    <string name="calories_etCalories">Calories per Serving</string>
+    <string name="protien">Protien</string>
+    <string name="apple">Apple</string>
+    <string name="add_food">Add Food</string>
+    <string name="log_out">Log Out</string>
+    <string name="joe_tschida_midterm_project">Joe Tschida Midterm Project</string>
+    <string name="next_meal">Next Meal</string>
+    <string name="food_diary">Food Diary</string>
+    <string name="calories_itemView">Calories</string>
+    <string name="meal_name">Meal Name</string>
+    <string name="protein_itemView">Protein</string>
 </resources>

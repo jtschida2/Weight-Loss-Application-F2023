@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/grey"
     tools:context=".MainActivity">
 
     <TextView
@@ -11,7 +12,7 @@
         android:layout_width="126dp"
         android:layout_height="47dp"
         android:layout_marginBottom="555dp"
-        android:text="Calories"
+        android:text="@string/calories"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
-        android:text="0"
+        android:text="@string/_0"
         app:layout_constraintStart_toStartOf="@+id/steps"
         app:layout_constraintTop_toBottomOf="@+id/steps" />
 
@@ -33,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="72dp"
-        android:text="Steps:"
+        android:text="@string/steps"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -43,7 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:text="0"
+        android:text="@string/_0_goalCalories"
         app:layout_constraintStart_toStartOf="@+id/goalCalories"
         app:layout_constraintTop_toBottomOf="@+id/goalCalories" />
 
@@ -53,7 +54,7 @@
         android:layout_height="24dp"
         android:layout_marginTop="76dp"
         android:layout_marginEnd="16dp"
-        android:text="Goal Calories:"
+        android:text="@string/goal_calories"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -64,7 +65,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginBottom="477dp"
-        android:text="View Diary"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        android:text="@string/view_diary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/TextViewCalories" />
 
@@ -91,7 +93,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="26dp"
         android:fontFamily="sans-serif-medium"
-        android:text="Welcome Back User!"
+        android:text="@string/welcome_back_user"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
@@ -103,6 +105,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="@string/serving"
         android:inputType="numberDecimal"
         app:layout_constraintStart_toStartOf="@+id/tvFoodServing"
         app:layout_constraintTop_toBottomOf="@+id/tvFoodServing" />
@@ -114,6 +117,7 @@
         android:layout_marginStart="13dp"
         android:layout_marginBottom="8dp"
         android:ems="10"
+        android:hint="@string/calories"
         android:inputType="numberDecimal"
         app:layout_constraintBottom_toTopOf="@+id/tvProtien"
         app:layout_constraintStart_toStartOf="parent" />
@@ -125,6 +129,7 @@
         android:layout_marginStart="13dp"
         android:layout_marginBottom="77dp"
         android:ems="10"
+        android:hint="@string/protien"
         android:inputType="numberDecimal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -135,7 +140,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginBottom="2dp"
-        android:text="Food Name"
+        android:text="@string/food_name"
         app:layout_constraintBottom_toTopOf="@+id/editTextFoodName"
         app:layout_constraintStart_toStartOf="@+id/editTextFoodName" />
 
@@ -145,7 +150,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="13dp"
         android:layout_marginTop="14dp"
-        android:text="Servings"
+        android:text="@string/servings"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextFoodName" />
 
@@ -154,7 +159,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
-        android:text="Calories"
+        android:text="@string/calories_etCalories"
         app:layout_constraintBottom_toTopOf="@+id/editTextCalories"
         app:layout_constraintStart_toStartOf="@+id/editTextCalories" />
 
@@ -163,7 +168,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
-        android:text="Protien"
+        android:text="@string/protien"
         app:layout_constraintBottom_toTopOf="@+id/editTextProtein"
         app:layout_constraintStart_toStartOf="@+id/editTextProtein" />
 
@@ -175,7 +180,7 @@
         android:layout_marginTop="108dp"
         android:layout_marginBottom="104dp"
         android:ems="10"
-        android:hint="Apple"
+        android:hint="@string/apple"
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="@+id/tvCalories"
         app:layout_constraintStart_toStartOf="parent"
@@ -187,7 +192,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="16dp"
-        android:text="Add Food"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        android:text="@string/add_food"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -197,7 +203,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginBottom="16dp"
-        android:text="Log Out"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        android:text="@string/log_out"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/buttonAddFood" />
 
@@ -211,6 +218,17 @@
         app:layout_constraintEnd_toStartOf="@+id/progressBarCalories"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/newMeal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        android:text="@string/next_meal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!--custom progress drawable for progress mode-->
 
